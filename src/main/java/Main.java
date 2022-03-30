@@ -11,9 +11,14 @@ public class Main {
         WebDriver ChromeTest = new ChromeDriver();
 
         ChromeTest.manage().window().maximize();
-        ChromeTest.get("https://google.co.il");
-        ChromeTest.get("https://amazon.com");
-        
+        ChromeTest.get("https://google.co.il"); // Opens google site
+        try {
+            Thread.sleep(2500); // Wait for 2.5 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ChromeTest.get("https://amazon.com"); // Opens amazon site
+
 
     }
 }
