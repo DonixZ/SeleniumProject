@@ -19,14 +19,20 @@ public class Main {
         WebElement ClickSearch = ChromeTest.findElement(By.xpath("//*[@id=\"nav-search-submit-button\"]")); // Search button
         ClickSearch.click(); // Click on search button
 
-        ChromeTest.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[1]/div/span[3]/div[2]/div[5]/div/div/div/div/div/div[2]/div/div/div[1]/h2/a/span")).click(); // Click on item after searching
+        ChromeTest.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[3]/div[2]/div[5]/div/div/div/div/div/div[2]/div/div/div[1]/h2/a/span")).click(); // Click on item after searching
 
         WebElement AddToCart = ChromeTest.findElement(By.xpath("//*[@id=\"add-to-cart-button\"]")); // Cart button
         AddToCart.click(); // Click Cart button
 
         ChromeTest.findElement(By.name("proceedToRetailCheckout")).click(); // Click on Checkout
 
+        try {
+            Thread.sleep(2500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+        ChromeTest.close();
 
 
     }
