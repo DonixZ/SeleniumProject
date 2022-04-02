@@ -16,14 +16,12 @@ public class Main {
         ChromeTest.findElement(By.className("login")).click(); // clicks on login
         ChromeTest.findElement(By.id("email_create")).sendKeys("Dannyzaletsky@gmail.com"); // sends value to email box
         ChromeTest.findElement(By.id("SubmitCreate")).click(); // clicks on create account
-
         try {
-            Thread.sleep(2500);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        ChromeTest.findElement(By.id("id_gender1")).click(); // checks the Mr option
+        ChromeTest.findElement(By.xpath("//*[@id=\"id_gender1\"]")).click(); // checks the Mr option
         ChromeTest.findElement(By.id("customer_firstname")).sendKeys("Daniel"); // sends value to first name box
         ChromeTest.findElement(By.id("customer_lastname")).sendKeys("Zaletsky"); // sends value to last name box
         ChromeTest.findElement(By.id("passwd")).sendKeys("9Y!vW@HRd7jUmt7"); // sends value to password box
@@ -32,7 +30,7 @@ public class Main {
         Select MonthsBirhday = new Select(ChromeTest.findElement(By.id("months"))); // sets Months value to 3
         MonthsBirhday.selectByIndex(3); // sets Months value to 3
         Select YearsBirhday = new Select(ChromeTest.findElement(By.id("years"))); // sets Years value to 1996
-        YearsBirhday.selectByValue(String.valueOf(1996)); // sets Years value to 1996
+        YearsBirhday.selectByValue("1996"); // sets Years value to 1996
         ChromeTest.findElement(By.id("address1")).sendKeys("Mivtza Yoav 35"); // sends value to address box
         ChromeTest.findElement(By.id("city")).sendKeys("Beer Sheva"); // sends value to city box
         Select State = new Select(ChromeTest.findElement(By.id("id_state"))); // sets State value to 1 alabama
@@ -45,7 +43,7 @@ public class Main {
         AddressAlias.sendKeys("Bobos"); // clears and then sends value to Alias Address box
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
