@@ -4,20 +4,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Main {
+public class SignInAutomation {
 
-    public static void main(String[] args) {
+    private String URL;
 
+    public SignInAutomation(String URL) {
+        this.URL = URL;
+    }
+
+    public String getURL() {
+        System.setProperty("webdriver.chrome.driver"
+                , this.URL);
+        WebDriver Ctest = new ChromeDriver();
+        Ctest.get("http://automationpractice.com/index.php");
+        return Ctest.getCurrentUrl();
+    }
+
+    public String SignIn() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\danny\\Desktop\\Sel\\chromedriver.exe");
         WebDriver ChromeTest = new ChromeDriver();
-
         ChromeTest.manage().window().maximize(); // Maximizes windows size
-        ChromeTest.get("http://automationpractice.com/index.php"); // enters the site
+        ChromeTest.get("https://automationpractice.com/index.php"); // enters the site
         ChromeTest.findElement(By.className("login")).click(); // clicks on login
-        ChromeTest.findElement(By.id("email_create")).sendKeys("Dannyzaletsky@gmail.com"); // sends value to email box
+        ChromeTest.findElement(By.id("email_create")).sendKeys("Dannyzaletsky5@gmail.com"); // sends value to email box
         ChromeTest.findElement(By.id("SubmitCreate")).click(); // clicks on create account
         try {
-            Thread.sleep(2000);
+            Thread.sleep(4500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -41,20 +53,17 @@ public class Main {
         AddressAlias.click(); // clears and then sends value to Alias Address box
         AddressAlias.clear(); // clears and then sends value to Alias Address box
         AddressAlias.sendKeys("Bobos"); // clears and then sends value to Alias Address box
-
         try {
-            Thread.sleep(2000);
+            Thread.sleep(4500);
         } catch (InterruptedException e) {
             e.printStackTrace();
-
-            ChromeTest.findElement(By.id("submitAccount")).click(); // clicks on Register button
-
-            try {
-                Thread.sleep(6000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-            ChromeTest.close();
         }
+        ChromeTest.findElement(By.id("submitAccount")).click(); // clicks on Register button
+        return ChromeTest.getTitle();
     }
 }
+
+
+
+
+
